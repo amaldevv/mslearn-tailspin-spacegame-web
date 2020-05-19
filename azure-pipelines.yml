@@ -1,3 +1,4 @@
+
 trigger:
 - '*'
 
@@ -52,8 +53,8 @@ steps:
     projectName: '$(SonarProjectName)'
     projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
-     sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
-     sonar.exclusions=**/wwwroot/lib/**/*
+      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
+      sonar.exclusions=**/wwwroot/lib/**/*
   condition: |
     and
     (
@@ -97,7 +98,7 @@ steps:
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
- 
+
 - task: SonarCloudPublish@1
   displayName: 'Publish SonarCloud quality gate results'
   condition: |
